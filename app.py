@@ -287,48 +287,59 @@ with tab_vid:
             try:
                 with st.spinner("Extracting frames..."):
                     frames, meta = extract_frames(path)
-                st.markdown("#### 📦 Clip metadata")
-                mc = st.columns(4)
-                mc[0].metric("Duration", f"{meta['duration_s']}s")
-                mc[1].metric("Resolution", meta["resolution"])
-                mc[2].metric("FPS", meta["fps"])
-                mc[3].metric("Frames sampled", len(frames))
-
-                with st.spinner(f"🧠 Scoring {len(frames)} frames with the CNN..."):
-                    result = analyze_frames(
-                        model, frames,
-                        lambda img: predict_image(model, img),
+                if not frames:
+                    st.error(
+                        "Could not extract any frames from this video. "
+                        "Try an MP4 (H.264) file — some codecs are not supported."
                     )
-                st.divider()
-                verdict_card(
-                    result["verdict"],
-                    result["confidence"],
-                    f"Mean P(fake) = {result['mean_fake']:.3f} · "
-                    f"{result['fake_ratio'] * 100:.0f}% frames flagged · "
-                    f"temporal volatility σ = {result['temporal_std']:.3f}",
+                else:
+                    st.markdown("#### 📦 Clip metadata")
+                    mc = st.columns(4)
+                    mc[0].metric("Duration", f"{meta['duration_s']}s")
+                    mc[1].metric("Resolution", meta["resolution"])
+                    mc[2].metric("FPS", meta["fps"])
+                    mc[3].metric("Frames sampled", len(frames))
+
+                    with st.spinner(
+                        f"🧠 Scoring {len(frames)} frames with the CNN..."
+                    ):
+                        result = analyze_frames(model, frames)
+                    st.divider()
+                    verdict_card(
+                        result["verdict"],
+                        result["confidence"],
+                        f"Mean P(fake) = {result['mean_fake']:.3f} · "
+                        f"{result['fake_ratio'] * 100:.0f}% frames flagged · "
+                        f"temporal volatility σ = {result['temporal_std']:.3f}",
+                    )
+
+                    st.markdown("#### 📈 Frame-by-frame fake probability")
+                    import pandas as pd
+
+                    chart_df = pd.DataFrame(
+                        {
+                            "frame": [r["frame"] for r in result["frames"]],
+                            "P(fake)": [r["p_fake"] for r in result["frames"]],
+                        }
+                    ).set_index("frame")
+                    st.line_chart(chart_df, height=220)
+
+                    with st.expander("🖼️ Inspect sampled frames"):
+                        cols = st.columns(6)
+                        for i, item in enumerate(frames):
+                            r = result["frames"][i]
+                            tag = "🔴" if r["p_fake"] >= 0.5 else "🟢"
+                            cols[i % 6].image(
+                                item["image"],
+                                caption=f"{tag} f{item['index']} · {r['p_fake']:.2f}",
+                                use_container_width=True,
+                            )
+            except Exception as exc:  # noqa: BLE001 - friendly error, never a crash
+                st.error(
+                    "Video analysis failed. "
+                    f"({type(exc).__name__}: {exc}) "
+                    "Try an MP4 (H.264) video under 200 MB."
                 )
-
-                st.markdown("#### 📈 Frame-by-frame fake probability")
-                import pandas as pd
-
-                chart_df = pd.DataFrame(
-                    {
-                        "frame": [r["frame"] for r in result["frames"]],
-                        "P(fake)": [r["p_fake"] for r in result["frames"]],
-                    }
-                ).set_index("frame")
-                st.line_chart(chart_df, height=220)
-
-                with st.expander("🖼️ Inspect sampled frames"):
-                    cols = st.columns(6)
-                    for i, item in enumerate(frames):
-                        r = result["frames"][i]
-                        tag = "🔴" if r["p_fake"] >= 0.5 else "🟢"
-                        cols[i % 6].image(
-                            item["image"],
-                            caption=f"{tag} f{item['index']} · {r['p_fake']:.2f}",
-                            use_container_width=True,
-                        )
             finally:
                 try:
                     import os
