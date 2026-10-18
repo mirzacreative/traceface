@@ -65,21 +65,26 @@ def extract_frames(video_path, max_frames=DEFAULT_MAX_FRAMES):
     return frames, metadata
 
 
-def analyze_frames(model, frames, predict_fn):
+def analyze_frames(model, frames):
     """Score every frame and aggregate into a video-level verdict.
 
-    predict_fn: callable(PIL image) -> {"p_fake": float, "p_real": float}
+    All frames are stacked into ONE batch for a single ``model.predict``
+    call — far faster (and less failure-prone) than N separate predicts
+    on CPU-only hosts.
     """
+    from src.model import preprocess_image
+
     results = []
-    for item in frames:
-        pred = predict_fn(item["image"])
-        results.append(
-            {
-                "frame": item["index"],
-                "p_fake": float(pred["p_fake"]),
-                "p_real": float(pred["p_real"]),
-            }
+    if frames:
+        batch = np.concatenate(
+            [preprocess_image(item["image"]) for item in frames], axis=0
         )
+        p_real = np.asarray(model.predict(batch, verbose=0)).reshape(-1)
+        for item, pr in zip(frames, p_real):
+            pr = float(min(1.0, max(0.0, pr)))
+            results.append(
+                {"frame": item["index"], "p_fake": 1.0 - pr, "p_real": pr}
+            )
 
     p_fakes = np.array([r["p_fake"] for r in results], dtype="float64")
     mean_fake = float(p_fakes.mean()) if len(p_fakes) else 0.0
