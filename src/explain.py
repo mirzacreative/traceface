@@ -2,6 +2,14 @@
 
 Shows *which regions* of the image pushed the model toward its verdict —
 the key differentiator over black-box "real/fake" classifiers.
+
+Implementation note: instead of reaching into the loaded model's internal
+graph via ``layer.output`` (fragile across Keras versions — it raises
+``AttributeError`` on Keras 3 for deserialized Sequential models), we
+*replay* the model's layers on a fresh Functional ``Input``. This builds a
+clean differentiable graph on every Keras version, reusing the trained
+weights. The public function never raises: any failure returns
+``(None, None)`` so the UI degrades gracefully instead of crashing.
 """
 from __future__ import annotations
 
@@ -9,19 +17,10 @@ import numpy as np
 from PIL import Image
 
 
-def _last_conv_layer(model):
-    """Find the deepest Conv2D layer with a 4D (feature-map) output."""
-    for layer in reversed(model.layers):
-        name = layer.name.lower()
-        cls = layer.__class__.__name__.lower()
-        if "conv" not in name and "conv" not in cls:
-            continue
-        try:
-            if len(layer.output.shape) == 4:
-                return layer
-        except Exception:  # noqa: BLE001
-            continue
-    return None
+def _is_conv_layer(layer):
+    name = layer.name.lower()
+    cls = layer.__class__.__name__.lower()
+    return "conv" in name or "conv" in cls
 
 
 def grad_cam_overlay(model, pil_image, preprocess_fn):
@@ -29,28 +28,51 @@ def grad_cam_overlay(model, pil_image, preprocess_fn):
 
     Returns:
         (overlay PIL image, heatmap PIL image) or (None, None) on failure.
+        Never raises.
     """
-    import tensorflow as tf
-
-    conv_layer = _last_conv_layer(model)
-    if conv_layer is None:
+    try:
+        return _grad_cam_overlay(model, pil_image, preprocess_fn)
+    except Exception:  # noqa: BLE001 - explainability must never crash the app
         return None, None
 
-    grad_model = tf.keras.models.Model(
-        inputs=model.inputs, outputs=[conv_layer.output, model.output]
-    )
-    batch = preprocess_fn(pil_image)
 
+def _grad_cam_overlay(model, pil_image, preprocess_fn):
+    import tensorflow as tf
+
+    try:
+        input_shape = tuple(model.input_shape[1:])
+    except Exception:  # noqa: BLE001 - fall back to the standard size
+        input_shape = (224, 224, 3)
+
+    conv_idx = None
+    for i, layer in enumerate(model.layers):
+        if _is_conv_layer(layer):
+            conv_idx = i
+    if conv_idx is None:
+        return None, None
+
+    # Replay the trained layers as a Functional graph so the last conv
+    # feature maps are accessible for gradients on any Keras version.
+    inputs = tf.keras.Input(shape=input_shape)
+    x = inputs
+    conv_out = None
+    for i, layer in enumerate(model.layers):
+        x = layer(x)
+        if i == conv_idx:
+            conv_out = x
+    grad_model = tf.keras.Model(inputs=inputs, outputs=[conv_out, x])
+
+    batch = preprocess_fn(pil_image)
     with tf.GradientTape() as tape:
-        conv_out, preds = grad_model(batch, training=False)
+        conv_features, preds = grad_model(batch, training=False)
         score = preds[:, 0]
 
-    grads = tape.gradient(score, conv_out)
+    grads = tape.gradient(score, conv_features)
     if grads is None:
         return None, None
 
     weights = tf.reduce_mean(grads, axis=(0, 1, 2))
-    cam = tf.reduce_sum(weights * conv_out[0], axis=-1).numpy()
+    cam = tf.reduce_sum(weights * conv_features[0], axis=-1).numpy()
     cam = np.maximum(cam, 0)
     cam = cam / (cam.max() + 1e-8)
 
