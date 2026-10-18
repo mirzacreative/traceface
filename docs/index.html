@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Traceface — Hybrid AI-Media Authenticity Detector</title>
+<meta name="description" content="Traceface detects AI-generated images and deepfake videos with a hybrid stack: Keras CNN + ELA forensics + metadata scan + Grad-CAM explainability.">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕵️</text></svg>">
+<!-- NOTE: binary logo (docs/assets/traceface-logo.webp) uploads separately once git push is available -->
+</head>
+<body>
+<!-- ══════════ FILL THIS AFTER DEPLOYING ON STREAMLIT CLOUD ══════════ -->
+<script>const LIVE_APP_URL = ""; /* e.g. "https://traceface.streamlit.app" */</script>
+
+<header class="hero">
+  <nav>
+    <div class="logo">🕵️ Traceface</div>
+    <a class="gh-link" href="https://github.com/mirzacreative/traceface">⭐ GitHub</a>
+  </nav>
+  <div class="hero-inner">
+    <div class="pill">HYBRID AI-MEDIA FORENSICS · OPEN SOURCE</div>
+    <h1>Real or <span class="grad">AI-generated?</span><br>Traceface knows.</h1>
+    <p class="sub">A hybrid authenticity detector for images <em>and</em> videos —
+      deep-learning CNN fused with classical forensics, explainable heatmaps,
+      and frame-by-frame video screening.</p>
+    <div class="cta">
+      <a id="launchBtn" class="btn primary" href="#deploy">🚀 Launch live app</a>
+      <a class="btn ghost" href="https://github.com/mirzacreative/traceface">📦 View source</a>
+    </div>
+    <div class="stats">
+      <div><b>5</b><span>detection signals</span></div>
+      <div><b>2</b><span>media types: image + video</span></div>
+      <div><b>100%</b><span>open source (MIT)</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="features">
+  <h2>Why Traceface is different</h2>
+  <p class="sec-sub">Most detectors are a bare CNN in a notebook. Traceface is a forensic workstation.</p>
+  <div class="grid">
+    <div class="card"><div class="ico">🧠</div><h3>Deep-learning CNN</h3><p>4-layer Keras convolutional network trained on real vs AI-generated imagery, outputting a calibrated P(real) score.</p></div>
+    <div class="card"><div class="ico">🔬</div><h3>ELA forensics</h3><p>Error Level Analysis recompresses the image and amplifies compression differences — edited or synthesized regions light up.</p></div>
+    <div class="card"><div class="ico">🏷️</div><h3>AI-signature scan</h3><p>Extracts EXIF &amp; PNG metadata and hunts for generator fingerprints: Stable Diffusion, Midjourney, DALL·E, ComfyUI…</p></div>
+    <div class="card"><div class="ico">🔥</div><h3>Grad-CAM explainability</h3><p>Instead of a black-box label, see <em>which pixels</em> drove the verdict with red-hot attention heatmaps.</p></div>
+    <div class="card"><div class="ico">🎬</div><h3>Video deepfake screening</h3><p>Samples frames across the clip, scores each with the CNN, and fuses them temporally — with a suspicion timeline.</p></div>
+    <div class="card"><div class="ico">⚖️</div><h3>Honest by design</h3><p>Every verdict is probabilistic with stated limitations. Forensics are supporting signals — never fake certainty.</p></div>
+  </div>
+</section>
+
+<section class="how">
+  <h2>How it works</h2>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><h3>Upload</h3><p>Drop an image (JPG/PNG) or a video (MP4/MOV/AVI/WEBM).</p></div>
+    <div class="step"><div class="n">2</div><h3>Analyze</h3><p>The CNN scores it while ELA, metadata and Grad-CAM run in parallel. Videos are screened frame-by-frame.</p></div>
+    <div class="step"><div class="n">3</div><h3>Verdict</h3><p>Get a Real / AI-Generated verdict with confidence, forensic evidence and an explainability heatmap.</p></div>
+  </div>
+</section>
+
+<section id="deploy" class="deploy">
+  <h2>🚀 Try the live app</h2>
+  <p id="deployNote">The interactive demo runs free on Streamlit Cloud. Deploy it in ~2 minutes:</p>
+  <ol>
+    <li>Fork/star the <a href="https://github.com/mirzacreative/traceface">GitHub repo</a></li>
+    <li>Go to <a href="https://share.streamlit.io">share.streamlit.io</a> → <b>New app</b> → pick the repo → <code>app.py</code> → <b>Deploy</b></li>
+    <li>Or run locally: <code>pip install -r requirements.txt && streamlit run app.py</code></li>
+  </ol>
+</section>
+
+<footer>
+  <p>🕵️ <b>Traceface</b> v2.0 · Built by <a href="https://mirzacreative.github.io/mirzacreative/">Muhammad Atif Iqbal · Mirza Creative</a></p>
+  <p class="tiny">MIT licensed · Verdicts are probabilistic, not legal judgments.</p>
+</footer>
+
+<script>
+(function () {
+  if (LIVE_APP_URL) {
+    var b = document.getElementById('launchBtn');
+    b.href = LIVE_APP_URL;
+    b.textContent = '🚀 Launch live app';
+    document.getElementById('deployNote').innerHTML =
+      'The live demo is running — click below to verify images & videos right now:';
+  }
+})();
+</script>
+</body>
+</html>
