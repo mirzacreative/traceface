@@ -1,0 +1,134 @@
+<!--
+  Repo: traceface (mirzacreative.github.io/traceface)
+  Filename: how-to-spot-ai-generated-images.html
+  Target URL: https://mirzacreative.github.io/traceface/how-to-spot-ai-generated-images.html
+  Keyword: how to spot AI-generated images
+  Post-upload steps:
+    1. Upload this file to the traceface repo root (GitHub Pages serves the repo root).
+    2. CREATE sitemap.xml in the repo root containing this URL (the site currently has NO sitemap.xml — it returns 404). Also add a robots.txt pointing to the sitemap.
+    3. Link this guide from the homepage (index/README) so visitors and crawlers can find it.
+    4. Request indexing in Google Search Console for the new URL only.
+-->
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>How to Spot AI-Generated Images: A Practical Guide</title>
+    <meta name="description" content="Learn how to spot AI-generated images: hands, text, lighting, textures, metadata, reverse search, and detectors — plus the honest limits of each method.">
+    <meta name="keywords" content="how to spot AI-generated images, AI image detection, deepfake detection, AI-generated image signs, Traceface">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mirzacreative.github.io/traceface/how-to-spot-ai-generated-images.html">
+    <meta property="og:title" content="How to Spot AI-Generated Images: A Practical Guide">
+    <meta property="og:description" content="Learn how to spot AI-generated images: hands, text, lighting, textures, metadata, reverse search, and detectors — plus the honest limits of each method.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mirzacreative.github.io/traceface/how-to-spot-ai-generated-images.html">
+    <meta property="og:site_name" content="traceface">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="How to Spot AI-Generated Images: A Practical Guide">
+    <meta name="twitter:description" content="Learn how to spot AI-generated images: hands, text, lighting, textures, metadata, reverse search, and detectors — plus the honest limits of each method.">
+    <meta name="author" content="Muhammad Atif Iqbal">
+    <link rel="stylesheet" href="/traceface/assets/css/style.css?v=54c797dfb6ec0161fd3f2c15f9231aaca5784e9d">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How to Spot AI-Generated Images: A Practical Guide","description":"Learn how to spot AI-generated images: hands, text, lighting, textures, metadata, reverse search, and detectors — plus the honest limits of each method.","author":{"@type":"Person","name":"Muhammad Atif Iqbal"},"publisher":{"@type":"Organization","name":"Traceface","url":"https://mirzacreative.github.io/traceface/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://mirzacreative.github.io/traceface/how-to-spot-ai-generated-images.html"},"url":"https://mirzacreative.github.io/traceface/how-to-spot-ai-generated-images.html","datePublished":"2026-11-13","dateModified":"2026-11-13","inLanguage":"en"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Traceface","item":"https://mirzacreative.github.io/traceface/"},{"@type":"ListItem","position":2,"name":"How to Spot AI-Generated Images","item":"https://mirzacreative.github.io/traceface/how-to-spot-ai-generated-images.html"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the easiest way to spot an AI-generated image?","acceptedAnswer":{"@type":"Answer","text":"Start with the details: zoom in on hands, faces, and any text in the image. Extra fingers, warped text, mismatched earrings, and inconsistent lighting are the most common giveaways. No single check is conclusive, so combine several before deciding."}},{"@type":"Question","name":"Can AI image detectors be trusted?","acceptedAnswer":{"@type":"Answer","text":"Detectors are useful supporting tools, not proof. They give a probability based on patterns in their training data, and new image generators can fool them. Use a detector alongside manual checks, metadata inspection, and reverse image search."}},{"@type":"Question","name":"Do AI-generated images have metadata that gives them away?","acceptedAnswer":{"@type":"Answer","text":"Sometimes. Some generators embed identifiers in EXIF data or PNG text chunks, and tools like Traceface scan for these fingerprints. But metadata is easily stripped when an image is re-saved or screenshotted, so its absence proves nothing."}}]}</script>
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+
+      <div style="font-size: 2em; font-weight: bold; margin: 0.67em 0;"><a href="https://mirzacreative.github.io/traceface/">traceface</a></div>
+
+      <p><a href="https://mirzacreative.github.io/traceface/">← Back to Traceface</a></p>
+
+      <h1 id="how-to-spot-ai-generated-images">How to Spot AI-Generated Images: A Practical Guide</h1>
+
+      <p><em>November 13, 2026 · Muhammad Atif Iqbal</em></p>
+
+      <p>AI image generators have become so good that a fake photo can pass a casual glance without any trouble. Portraits, landscapes, product shots, news-style images: all of them can now be synthesized in seconds. That makes a basic skill newly important for everyone, not just journalists and researchers: knowing how to look at an image and judge whether it is real.</p>
+
+      <p>There is no single test that settles the question. The newest generators fix the mistakes older ones made, and a heavily edited real photo can look stranger than a clean AI image. The reliable approach is to combine several checks — visual inspection, metadata, reverse search, and a detection tool — and to treat every result as evidence, not proof. This guide walks through each check in the order a careful reader would use them.</p>
+
+      <h2>1. Start With the Hands</h2>
+
+      <p>Hands remain the classic giveaway, and for good reason. Image generators learn what hands look like from millions of photos, but they still struggle with the geometry of fingers: how many there are, how they bend, and how they interact with objects. Zoom in and count the fingers. Look for extra digits, fingers that merge into each other, nails that point the wrong way, or a hand gripping a cup in a way no real hand could.</p>
+
+      <p>Be careful, though. Real hands in low-resolution photos, motion blur, or awkward angles can also look strange, and the newest generators get hands right more often than they used to. A normal-looking hand does not prove an image is real; a clearly impossible hand is strong evidence that it is not.</p>
+
+      <h2>2. Read the Text in the Image</h2>
+
+      <p>Text is the second-fastest check. AI generators are notoriously bad at rendering letters, words, and numbers inside an image. Look at signs, shopfronts, book covers, T-shirts, labels, and documents. Misspelled words, gibberish lettering, letters that melt into each other, or text that looks sharp from a distance but dissolves into nonsense up close are all strong signs of generation.</p>
+
+      <p>This check works best on images that should contain readable text. A street scene with a shop sign that says something almost-but-not-quite English is suspicious in a way that a plain portrait is not. As with hands, the newest models are improving, so treat garbled text as strong evidence rather than absolute proof.</p>
+
+      <h2>3. Check Faces, Ears, and Accessories</h2>
+
+      <p>Faces deserve a close look. In AI portraits, common flaws include asymmetrical earrings, glasses with uneven arms or warped lenses, teeth that blend together, and eyes that point in slightly different directions or reflect different light sources. Hair is another tell: strands that fade into the background, or a hairline that does not quite connect to the scalp.</p>
+
+      <p>Ears are especially revealing, because generators often pay less attention to them than to the eyes and mouth. Compare both ears for shape and position, and check whether earrings match. Background people are worth the same treatment: in a generated crowd scene, the people at the edges often have blurred or distorted faces while the main subject looks perfect.</p>
+
+      <h2>4. Follow the Light and the Shadows</h2>
+
+      <p>Real photographs obey physics. Light comes from a direction, and everything in the scene responds to it consistently. In AI images, the lighting often does not add up: shadows fall in different directions, a person's face is lit from the left while their shadow falls to the left too, or reflections in mirrors, windows, and water show something that is not in the scene.</p>
+
+      <p>Check reflections carefully. A mirror that shows a different room, sunglasses that reflect a scene that does not match the surroundings, or a wet street that reflects lights that are not there are all classic generation errors. Real photos can contain odd reflections, but they are consistent with the scene. Generated ones frequently are not.</p>
+
+      <h2>5. Look at Textures and Backgrounds</h2>
+
+      <p>AI generators are good at the main subject and weaker at everything around it. Zoom into the background and look for textures that smear, repeat, or dissolve: brickwork that changes pattern halfway across a wall, foliage that turns into abstract mush, fabric with a weave that makes no sense, or objects at the edge of the frame that melt into each other.</p>
+
+      <p>Also watch for details that are too perfect or too smooth. Real photographs have noise, slight imperfections, and small inconsistencies. An image where every surface looks airbrushed and every edge is impossibly clean deserves a second look, especially if it is presented as an unedited photograph.</p>
+
+      <h2>6. Inspect the Metadata</h2>
+
+      <p>Before concluding anything from appearance alone, check the file itself. Many generators embed identifiers in the image metadata: EXIF fields, PNG text chunks, or C2PA content credentials that record which tool created the image and when. You can inspect these with a metadata viewer, an EXIF reader, or a forensic tool.</p>
+
+      <p><a href="https://mirzacreative.github.io/traceface/">Traceface</a> includes a metadata and AI-signature scan that hunts for generator fingerprints from tools such as Stable Diffusion, Midjourney, DALL·E, and ComfyUI, alongside its ELA forensics and CNN analysis. A matching fingerprint is useful evidence. But metadata is fragile: it disappears when an image is re-saved, compressed, or screenshotted, and it can be deliberately stripped or faked. The presence of a generator signature is informative; its absence proves nothing.</p>
+
+      <h2>7. Try a Reverse Image Search</h2>
+
+      <p>A reverse image search answers a different question: has this image, or something very like it, appeared before? Upload the image to a reverse search engine and see what comes back. If the same image appears on a stock photo site, a generator gallery, or an older article with a different story attached, you have learned something important about its origin, whatever the pixels suggest.</p>
+
+      <p>Reverse search is especially valuable for images shared with a dramatic claim, such as a supposed photo of a recent event. If the image turns out to be years old or from a different place entirely, the claim falls apart even before you examine the pixels. A new image with no matches, however, tells you nothing on its own: a freshly generated image has no history to find.</p>
+
+      <h2>8. Use a Detection Tool — and Understand Its Limits</h2>
+
+      <p>AI image detectors analyse an image with a trained model and return a probability that it is AI-generated. Tools like <a href="https://mirzacreative.github.io/traceface/">Traceface</a> combine several signals — a convolutional neural network, error level analysis (ELA) forensics that expose edited or synthesized regions, and metadata scanning — and explain which parts of the image drove the verdict, for example through a Grad-CAM heatmap. You can try the live demo at <a href="https://traceface.streamlit.app">traceface.streamlit.app</a>, and the project is open source at <a href="https://github.com/mirzacreative/traceface">github.com/mirzacreative/traceface</a>.</p>
+
+      <p>But be honest about what detectors can and cannot do. No detector is perfectly accurate, and none can offer a guarantee. A detector is only as good as its training data, so a brand-new generator can produce images that fool it. Compressed, cropped, or re-saved images lose the subtle artefacts detectors rely on. And a detector can flag a real photo as fake, particularly heavily edited, upscaled, or low-quality real images.</p>
+
+      <p>That is why Traceface itself is presented as a probabilistic tool, not a verdict machine. Its honest limitations are stated on the project page: the CNN can be fooled by new generators, ELA and metadata are supporting signals rather than proof, and every result is a probability, not a legal judgment. Any detector that promises 100% accuracy is selling something that does not exist.</p>
+
+      <h2>A Quick Checklist You Can Use Anywhere</h2>
+
+      <ul>
+        <li><strong>Hands and fingers:</strong> count them, check how they bend and grip.</li>
+        <li><strong>Text:</strong> read every sign, label, and shirt in the image.</li>
+        <li><strong>Faces and accessories:</strong> compare earrings, glasses, teeth, and ears.</li>
+        <li><strong>Light and shadows:</strong> check direction, reflections, and mirrors.</li>
+        <li><strong>Textures and background:</strong> zoom in and look for smearing or melting detail.</li>
+        <li><strong>Metadata:</strong> check EXIF, PNG chunks, and content credentials.</li>
+        <li><strong>Reverse search:</strong> check whether the image has appeared before, with a different story.</li>
+        <li><strong>Detector:</strong> run it as one signal among many, and read the explanation, not just the score.</li>
+      </ul>
+
+      <h2>The Bottom Line</h2>
+
+      <p>Spotting AI-generated images is a skill built from habits, not from a single trick. Look closely at hands, text, faces, light, and texture. Check the metadata and search for the image's history. Run a detector, and treat its output as one piece of evidence among several. And remember the direction of the burden: a clean-looking image is not proof of authenticity, and a single suspicious detail is not proof of fakery.</p>
+
+      <p>The generators will keep getting better, and some of the checks in this guide will stop working as they do. What will not stop working is the habit itself: slow down, zoom in, check the source, and ask whether the image earns your trust. When in doubt, verify before you share.</p>
+
+      <hr>
+
+      <p><a href="https://mirzacreative.github.io/traceface/">← Back to Traceface</a> · Try the live detector at <a href="https://traceface.streamlit.app">traceface.streamlit.app</a> · Source code: <a href="https://github.com/mirzacreative/traceface">github.com/mirzacreative/traceface</a></p>
+
+      <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
+        This site is open source. <a href="https://github.com/mirzacreative/traceface/edit/main/how-to-spot-ai-generated-images.html">Improve this page</a>.
+      </div>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>
