@@ -1,0 +1,120 @@
+<!--
+  Repo: traceface (mirzacreative.github.io/traceface)
+  Filename: ai-deepfake-detection-how-it-works.html
+  Target URL: https://mirzacreative.github.io/traceface/ai-deepfake-detection-how-it-works.html
+  Keyword: AI deepfake detection how it works
+  Post-upload steps:
+    1. Upload this file to the traceface repo root (GitHub Pages serves the repo root).
+    2. Add the URL to the EXISTING sitemap.xml in the repo root (created 2026-11-13, currently lists how-to-spot-ai-generated-images.html + homepage) with lastmod 2026-11-14. Do NOT create a new sitemap — append to the existing one. robots.txt already exists.
+    3. Link this guide from the homepage (index/README) so visitors and crawlers can find it.
+    4. Request indexing in Google Search Console for the new URL only.
+-->
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Deepfake Detection: How It Works (Explained)</title>
+    <meta name="description" content="How AI deepfake detection works: pixel artifacts, frequency analysis, metadata and model fingerprints — plus what detectors can and cannot prove.">
+    <meta name="keywords" content="AI deepfake detection how it works, deepfake detection, AI-generated image detection, deepfake detector, Traceface">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mirzacreative.github.io/traceface/ai-deepfake-detection-how-it-works.html">
+    <meta property="og:title" content="AI Deepfake Detection: How It Works (Explained)">
+    <meta property="og:description" content="How AI deepfake detection works: pixel artifacts, frequency analysis, metadata and model fingerprints — plus what detectors can and cannot prove, and their limits.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mirzacreative.github.io/traceface/ai-deepfake-detection-how-it-works.html">
+    <meta property="og:site_name" content="traceface">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AI Deepfake Detection: How It Works (Explained)">
+    <meta name="twitter:description" content="Pixel artifacts, frequency analysis, metadata and model fingerprints — how deepfake detection works, and what it cannot prove.">
+    <meta name="author" content="Muhammad Atif Iqbal">
+    <link rel="stylesheet" href="/traceface/assets/css/style.css?v=54c797dfb6ec0161fd3f2c15f9231aaca5784e9d">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"AI Deepfake Detection: How It Works (Explained)","description":"How AI deepfake detection works: pixel artifacts, frequency analysis, metadata and model fingerprints — plus what detectors can and cannot prove.","author":{"@type":"Person","name":"Muhammad Atif Iqbal"},"publisher":{"@type":"Organization","name":"Traceface","url":"https://mirzacreative.github.io/traceface/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://mirzacreative.github.io/traceface/ai-deepfake-detection-how-it-works.html"},"url":"https://mirzacreative.github.io/traceface/ai-deepfake-detection-how-it-works.html","datePublished":"2026-11-14","dateModified":"2026-11-14","inLanguage":"en"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Traceface","item":"https://mirzacreative.github.io/traceface/"},{"@type":"ListItem","position":2,"name":"AI Deepfake Detection: How It Works","item":"https://mirzacreative.github.io/traceface/ai-deepfake-detection-how-it-works.html"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does AI deepfake detection work?","acceptedAnswer":{"@type":"Answer","text":"Deepfake detectors look for traces the generation process leaves behind: pixel-level artifacts, unusual frequency patterns, missing or inconsistent metadata, and fingerprints of the specific model that made the image. Most detectors combine several of these signals with a trained machine-learning model and return a probability, not a yes-or-no verdict."}},{"@type":"Question","name":"Can deepfake detectors be trusted?","acceptedAnswer":{"@type":"Answer","text":"They are useful supporting tools, not proof. No detector is 100% reliable: new generators can fool them, and compression, cropping or re-saving an image can erase the traces detectors look for. A detector result should be combined with manual inspection, metadata checks and reverse image search — and a detector can also wrongly flag a real photo as fake."}},{"@type":"Question","name":"What is frequency analysis in deepfake detection?","acceptedAnswer":{"@type":"Answer","text":"Frequency analysis looks at an image in the frequency domain, where the fine detail and texture of an image appear as patterns. Images made by generative models often show unusual high-frequency patterns — for example from the upsampling steps generators use — that differ from the natural patterns of a camera photo. Detectors use these differences as one signal among several."}},{"@type":"Question","name":"Can a real photo be wrongly flagged as a deepfake?","acceptedAnswer":{"@type":"Answer","text":"Yes. Heavily edited, upscaled, sharpened or low-quality real photos can trigger false positives, because the editing process can create patterns that look like generation artifacts. This is why a detector score alone should never be treated as proof that an image is fake, and why the result needs to be checked against other evidence."}}]}</script>
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+
+      <div style="font-size: 2em; font-weight: bold; margin: 0.67em 0;"><a href="https://mirzacreative.github.io/traceface/">traceface</a></div>
+
+      <p><a href="https://mirzacreative.github.io/traceface/">← Back to Traceface</a></p>
+
+      <h1 id="ai-deepfake-detection-how-it-works">AI Deepfake Detection: How It Works</h1>
+
+      <p><em>November 14, 2026 · Muhammad Atif Iqbal</em></p>
+
+      <p>Deepfakes and AI-generated images have become convincing enough to fool a casual glance, and sometimes a careful one. A fake portrait, a fabricated event photo, or a synthetic video clip can spread across the internet before anyone checks whether it is real. That is why deepfake detection exists — and why it is worth understanding what these detectors actually do, instead of treating their verdict as magic. A detector is not a truth machine. It is a set of tests, each looking for a different trace that the generation process leaves behind, combined into a probability. This guide explains those tests in plain language: pixel artifacts, frequency analysis, metadata, and model fingerprints — and then the honest part: what detectors can and cannot prove, why they make mistakes, and how to use them properly.</p>
+
+      <p>For the hands-on side of this topic, read our companion guide on <a href="how-to-spot-ai-generated-images.html">how to spot AI-generated images</a>, which walks through the visual checks — hands, text, lighting, textures — you can do yourself in a minute. This guide explains what happens under the hood when a detector does the checking for you.</p>
+
+      <h2>1. Pixel Artifacts: The Traces Generation Leaves Behind</h2>
+
+      <p>Generative image models build pictures from noise, step by step, and that process leaves subtle marks at the pixel level. Detectors look for these marks: repeating texture patterns that no camera sensor would produce, edges that are too smooth or too regular, skin that lacks the fine grain of a real photograph, and small inconsistencies between neighbouring regions of the image. One common technique, error level analysis (ELA), re-saves the image at a known compression level and compares the result with the original: regions that were generated or edited often compress differently from the rest of the image, and they show up as brighter or darker patches in the analysis. ELA is a supporting signal, not proof on its own — a heavily edited real photo can also show uneven compression — but as part of a detector it points to the areas worth a closer look.</p>
+
+      <p>Pixel artifacts are also why compression matters so much. Every time an image is re-saved, cropped, or screenshotted, some of the fine detail that detectors rely on is destroyed. An image that has been through several rounds of compression may carry almost no detectable artifacts at all, even if it was generated. That is one reason a detector can miss a fake: the evidence was lost before the detector ever saw the file.</p>
+
+      <h2>2. Frequency Analysis: Reading the Image's Hidden Patterns</h2>
+
+      <p>Frequency analysis looks at an image in a different way: instead of looking at pixels, it looks at the patterns of fine detail across the image. In the frequency domain, the smooth areas and the fine textures of a picture appear as distinct patterns, and images made by generative models often show unusual patterns there. The reason is the way generators work: many of them build an image at a low resolution and then upscale it, and the upsampling steps leave a characteristic signature in the high-frequency detail — repeating structures or peaks that a camera photo does not normally have.</p>
+
+      <p>Detectors trained on these patterns can be effective, especially against the generation methods they were trained on. But the signature changes with every new generation method, and newer generators are designed — sometimes deliberately — to produce frequency patterns that look more like a camera's. Frequency analysis is therefore a moving target: it catches the generators it knows, and it can miss the ones it has never seen. Like every method in this guide, it is one signal among several, and it is strongest when combined with the others.</p>
+
+      <h2>3. Metadata: What the File Says About Itself</h2>
+
+      <p>Before a detector analyses a single pixel, it can read the file itself. Many image generators embed identifiers in the image metadata: EXIF fields, PNG text chunks, or C2PA content credentials that record which tool created the image and when. Some detectors also check the file's internal structure — the software that wrote it, the compression settings, the colour profile — for values that are typical of a generator rather than a camera.</p>
+
+      <p>Metadata is powerful when it is present: a clear generator signature is useful evidence. But it is also the most fragile signal of all. Metadata disappears when an image is re-saved, compressed, or screenshotted, and it can be deliberately stripped or faked. A detector that finds no generator signature has found nothing at all — the absence of metadata proves nothing about whether the image is real. <a href="https://mirzacreative.github.io/traceface/">Traceface</a> includes a metadata and AI-signature scan that hunts for generator fingerprints from tools such as Stable Diffusion, Midjourney, DALL·E, and ComfyUI, alongside its ELA forensics and CNN analysis. A matching fingerprint is informative; its absence is not an all-clear.</p>
+
+      <h2>4. Model Fingerprints: Recognising the Generator Itself</h2>
+
+      <p>Every generative model leaves a slightly different fingerprint on the images it produces, because every model was trained on different data with a different architecture. Some detectors are trained to recognise these fingerprints: given an image, they estimate which family of models most likely produced it, or whether the image matches the statistical profile of any known generator. This is sometimes called model attribution, and it is the most specific form of detection — instead of saying "this looks synthetic", it can suggest "this looks like it came from a diffusion model of a particular kind".</p>
+
+      <p>Model fingerprints are useful, but they have a built-in expiry date. Every new model version changes the fingerprint, and a detector trained on last year's generators may not recognise this year's. Generators can also be fine-tuned, combined, or run through extra processing steps that blur the fingerprint. So attribution works best on well-known, widely used generators, and it is weakest on new or heavily processed images — exactly the images that matter most in a fast-moving news cycle.</p>
+
+      <h2>5. How Detectors Combine the Signals</h2>
+
+      <p>In practice, a modern detector does not rely on one test. It runs several in parallel and combines the results. A typical pipeline works like this: the image is checked for metadata and generator fingerprints; pixel-level and frequency analysis look for generation artifacts; and a trained neural network — often a convolutional neural network, or CNN — examines the whole image and returns a score. The CNN has been trained on large sets of real and generated images, and it has learned patterns that humans cannot easily describe. Some tools, including <a href="https://mirzacreative.github.io/traceface/">Traceface</a>, also explain which parts of the image drove the verdict, for example through a Grad-CAM heatmap that highlights the regions the model found most suspicious.</p>
+
+      <p>The combined result is a probability, not a verdict. A score of 85% AI-generated means the model thinks the image is more likely generated than real — it does not mean the image is certainly fake, and it does not tell you which generator made it. You can try the live demo at <a href="https://traceface.streamlit.app">traceface.streamlit.app</a>, and the project is open source at <a href="https://github.com/mirzacreative/traceface">github.com/mirzacreative/traceface</a>. Read the score as a starting point for further checks, not as the final answer.</p>
+
+      <h2>6. What Detectors Can and Cannot Prove</h2>
+
+      <p>This is the part that matters most, and it is where honest detectors differ from the ones that overpromise. A detector <strong>can</strong> tell you that an image carries patterns associated with generation, that it contains a known generator fingerprint, or that its compression history looks inconsistent. A detector <strong>cannot</strong> prove that an image is real, and it cannot prove that an image is fake. No detector is 100% reliable, and any tool that promises perfect accuracy is selling something that does not exist. The reasons are straightforward: new generators can fool detectors trained on older ones; compression and re-saving erase the traces detectors look for; and heavily edited real photos can create patterns that look like generation artifacts.</p>
+
+      <p>There are two kinds of mistake, and both matter. A <strong>false negative</strong> is a fake image the detector calls real — dangerous when a convincing deepfake is used to spread a false claim. A <strong>false positive</strong> is a real photo the detector calls fake — dangerous when a genuine photo is dismissed as fabricated, or when a real person's image is wrongly accused. Heavily edited, upscaled, sharpened or low-quality real photos are the most likely to be flagged wrongly. Because both errors are possible, a single detector result should never be the basis for a public accusation, a news judgment, or a decision that affects a real person.</p>
+
+      <h2>7. A Practical Checklist Before You Trust a Result</h2>
+
+      <ul>
+        <li><strong>Run more than one check:</strong> combine a detector with manual inspection, metadata reading, and reverse image search.</li>
+        <li><strong>Read the explanation, not just the score:</strong> if the tool shows a heatmap or highlights suspicious regions, check whether they make sense.</li>
+        <li><strong>Check the source:</strong> who shared the image, and does the source have a reason to be trusted — or to mislead?</li>
+        <li><strong>Reverse-search the image:</strong> has it appeared before, with a different story attached?</li>
+        <li><strong>Look for corroboration:</strong> is there other evidence — another photo, a video, a witness — that supports the image's story?</li>
+        <li><strong>Consider the quality:</strong> a heavily compressed, cropped or screenshotted image has lost the traces detectors need, so treat the result with extra caution.</li>
+        <li><strong>Do not overstate the result:</strong> say "the detector flagged this image" or "the image shows signs of generation", not "this image is definitely fake".</li>
+        <li><strong>When in doubt, do not share:</strong> if you cannot verify an image, the safest choice is not to spread it.</li>
+      </ul>
+
+      <h2>The Bottom Line</h2>
+
+      <p>AI deepfake detection works by hunting for the traces generation leaves behind — pixel artifacts, unusual frequency patterns, metadata fingerprints, and the statistical signature of the model that made the image — and combining them into a probability. It is a genuinely useful technology, and it is getting better. But it is not a truth machine, and it never will be: the generators improve as fast as the detectors, the evidence degrades every time an image is re-saved, and both kinds of mistake — missing a fake and flagging a real photo — are always possible.</p>
+
+      <p>The right way to use a detector is as one tool in a larger habit: look closely at the image yourself, check the metadata, search for its history, and ask whether the source earns your trust. Our guide on <a href="how-to-spot-ai-generated-images.html">how to spot AI-generated images</a> covers the manual checks step by step. Use the detector, read its explanation, and then decide for yourself — and when the evidence is not enough, say so plainly and do not share the image.</p>
+
+      <hr>
+
+      <p><a href="https://mirzacreative.github.io/traceface/">← Back to Traceface</a> · Try the live detector at <a href="https://traceface.streamlit.app">traceface.streamlit.app</a> · Source code: <a href="https://github.com/mirzacreative/traceface">github.com/mirzacreative/traceface</a></p>
+
+      <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
+        This site is open source. <a href="https://github.com/mirzacreative/traceface/edit/main/ai-deepfake-detection-how-it-works.html">Improve this page</a>.
+      </div>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>
