@@ -1,0 +1,127 @@
+<!--
+  Repo: traceface (mirzacreative.github.io/traceface)
+  Filename: ai-generated-video-detection.html
+  Target URL: https://mirzacreative.github.io/traceface/ai-generated-video-detection.html
+  Keyword: AI-generated video detection
+  Post-upload steps:
+    1. Upload this file to the traceface repo root (GitHub Pages serves the repo root).
+    2. Add the URL to the EXISTING sitemap.xml in the repo root (created 2026-11-13, currently lists how-to-spot-ai-generated-images.html + ai-deepfake-detection-how-it-works.html + homepage) with lastmod 2026-11-16. Do NOT create a new sitemap — append to the existing one. robots.txt already exists.
+    3. Link this guide from the homepage (index/README) so visitors and crawlers can find it.
+    4. Request indexing in Google Search Console for the new URL only.
+-->
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI-Generated Video Detection: How It Works (2026)</title>
+    <meta name="description" content="How AI-generated video detection works: frame artifacts, motion and lip-sync checks, audio analysis and metadata — and why video fakes are harder to catch.">
+    <meta name="keywords" content="AI-generated video detection, video deepfake detection, AI video detector, deepfake video detection, Traceface">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mirzacreative.github.io/traceface/ai-generated-video-detection.html">
+    <meta property="og:title" content="AI-Generated Video Detection: How It Works (2026)">
+    <meta property="og:description" content="How AI-generated video detection works: frame artifacts, motion and lip-sync checks, audio analysis and metadata — and why video fakes are harder to catch.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mirzacreative.github.io/traceface/ai-generated-video-detection.html">
+    <meta property="og:site_name" content="traceface">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AI-Generated Video Detection: How It Works (2026)">
+    <meta name="twitter:description" content="Frame artifacts, motion and lip-sync checks, audio analysis and metadata — how AI-generated video detection works, and why video is harder than images.">
+    <meta name="author" content="Muhammad Atif Iqbal">
+    <link rel="stylesheet" href="/traceface/assets/css/style.css?v=54c797dfb6ec0161fd3f2c15f9231aaca5784e9d">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"AI-Generated Video Detection: How It Works (2026)","description":"How AI-generated video detection works: frame artifacts, motion and lip-sync checks, audio analysis and metadata — and why video fakes are harder to catch.","author":{"@type":"Person","name":"Muhammad Atif Iqbal"},"publisher":{"@type":"Organization","name":"Traceface","url":"https://mirzacreative.github.io/traceface/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://mirzacreative.github.io/traceface/ai-generated-video-detection.html"},"url":"https://mirzacreative.github.io/traceface/ai-generated-video-detection.html","datePublished":"2026-11-16","dateModified":"2026-11-16","inLanguage":"en"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Traceface","item":"https://mirzacreative.github.io/traceface/"},{"@type":"ListItem","position":2,"name":"AI-Generated Video Detection","item":"https://mirzacreative.github.io/traceface/ai-generated-video-detection.html"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does AI-generated video detection work?","acceptedAnswer":{"@type":"Answer","text":"Video detectors analyse a clip frame by frame and across time: they look for generation artifacts in individual frames, inconsistencies in motion between frames, lip movements that do not match the audio, and signs of synthetic speech. Most tools combine several of these signals with a trained model and return a probability, not a yes-or-no verdict."}},{"@type":"Question","name":"Can AI-generated videos be reliably detected?","acceptedAnswer":{"@type":"Answer","text":"Not reliably enough to treat a single result as proof. Detection of video is harder than detection of images, because compression destroys evidence, generators are improving fast, and short social-media clips leave little to analyse. A detector result should be combined with manual inspection, source checks and reverse search — and a real video can also be wrongly flagged."}},{"@type":"Question","name":"What is lip-sync analysis in deepfake detection?","acceptedAnswer":{"@type":"Answer","text":"Lip-sync analysis checks whether the movements of a speaker's mouth match the sounds in the audio track. In many fake videos the lips lag, lead, or form shapes that do not match the spoken phonemes, especially on fast speech or unusual sounds. Detectors measure this alignment frame by frame; a consistent mismatch across a clip is a strong signal that the video or the audio was generated."}},{"@type":"Question","name":"Can a real video be wrongly flagged as AI-generated?","acceptedAnswer":{"@type":"Answer","text":"Yes. Heavily compressed, low-resolution, stabilised or re-encoded real videos can trigger false positives, because the processing creates patterns that look like generation artifacts. Fast motion, poor lighting and heavy filters have the same effect. This is why a detector score alone should never be treated as proof that a video is fake."}}]}</script>
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+
+      <div style="font-size: 2em; font-weight: bold; margin: 0.67em 0;"><a href="https://mirzacreative.github.io/traceface/">traceface</a></div>
+
+      <p><a href="https://mirzacreative.github.io/traceface/">← Back to Traceface</a></p>
+
+      <h1 id="ai-generated-video-detection">AI-Generated Video Detection: How It Works</h1>
+
+      <p><em>November 16, 2026 · Muhammad Atif Iqbal</em></p>
+
+      <p>A convincing AI-generated video is more dangerous than a fake photo, and harder to catch. A still image is one frame; a video is hundreds of them, moving, talking, blinking — and movement is persuasive. When a face moves naturally and a voice sounds right, our brains assume the clip is real, even when the details are wrong. That is why AI-generated video detection exists, and why it is a different problem from image detection: the detector has to check not just what each frame looks like, but whether the frames agree with each other over time, whether the lips match the words, and whether the voice itself was made by a machine. This guide explains how video detection works in plain language — frame artifacts, motion and temporal checks, lip-sync and audio analysis, and metadata — and then the honest part: why video deepfakes are harder to detect than images, what detectors can and cannot prove, and how to check a suspicious clip properly.</p>
+
+      <p>If you are new to this topic, read our guide on <a href="ai-deepfake-detection-how-it-works.html">how AI deepfake detection works</a> first — it explains the core ideas of pixel artifacts, frequency analysis and model fingerprints for images. This guide builds on those ideas and adds everything that is specific to video. For the hands-on visual checks you can do yourself, see our companion guide on <a href="how-to-spot-ai-generated-images.html">how to spot AI-generated images</a>.</p>
+
+      <h2>1. Frame Artifacts: Image Detection, Repeated Hundreds of Times</h2>
+
+      <p>The first layer of video detection is the same as image detection, applied to individual frames. A detector extracts frames from the video — often one every second, or a sample of key frames — and runs the same tests it would run on a still image: pixel-level artifacts, unusual frequency patterns, textures that no camera sensor would produce, skin that is too smooth, hands that are wrong, text that is garbled. Each frame gets a score, and the scores are combined across the whole clip.</p>
+
+      <p>But a single frame is a weak witness. Video generators are good at making any one frame look plausible, and the frame the detector happens to sample might be a clean one. Worse, video compression works against the detector: the codecs that make video files small — H.264, VP9, AV1 — throw away fine detail, and that fine detail is exactly what artifact detection relies on. A clip that has been uploaded to a social platform, downloaded, and re-uploaded again may have been compressed three times, and each pass destroys more of the evidence. That is why frame analysis is only the starting point for video detection, never the whole method: it catches the obvious fakes, and it misses the careful ones.</p>
+
+      <h2>2. Motion and Temporal Checks: Do the Frames Agree?</h2>
+
+      <p>Video has something a still image does not: time. A real video is a continuous recording, and every frame follows naturally from the one before it. Generated video is usually made frame by frame, or in short chunks stitched together, and that stitching leaves traces. Detectors look for them in several ways. They check <strong>temporal consistency</strong>: does an object that appears in one frame still look the same a second later, or does it flicker, morph, or change shape? They check <strong>motion flow</strong>: do moving objects follow smooth, physically sensible paths, or do they jerk, warp, or slide in ways a real camera would never record? They check <strong>background stability</strong>: does the wall behind the speaker stay still, or does it shimmer and shift as if it were being redrawn every frame?</p>
+
+      <p>These are the checks where generated video most often fails, because keeping hundreds of frames consistent is much harder than making one frame look good. The signs are visible to a careful human viewer too, if you know what to look for: a face that changes subtly between cuts, a hand that appears and disappears, a background object that wobbles. But there is a catch — the same inconsistencies appear in real videos that have been stabilised, compressed, or filmed in poor light. A shaky phone video of a moving subject will fail a motion-consistency check for entirely innocent reasons. Temporal checks are powerful signals, but they need context, and they are one reason video detectors produce more false alarms than image detectors.</p>
+
+      <h2>3. Lip-Sync and Face Checks: The Mouth Must Match the Words</h2>
+
+      <p>For videos of people speaking, the most telling check is lip-sync: do the movements of the mouth match the sounds in the audio? In a real recording, the lips, teeth and tongue form shapes that correspond exactly to the spoken phonemes, and the timing is precise to a few dozen milliseconds. In a generated or face-swapped video, that alignment often breaks. The lips may lag behind the voice, or move ahead of it, or form a shape that does not match the sound — a closed mouth during an open vowel, or a smile that never changes while the speaker's tone shifts.</p>
+
+      <p>Detectors measure this by tracking facial landmarks frame by frame and comparing the mouth shapes with the audio waveform. A consistent mismatch across the whole clip is a strong signal that the video or the audio was generated. Related checks look at blinking — real people blink at irregular intervals, while early deepfakes blinked too rarely or too regularly — and at head movement: a real speaker's head moves in small, natural ways that match the rhythm of speech, while a generated face can look oddly still, or move in a way that does not match the voice. These checks work best on clear, front-facing, well-lit footage of a single speaker. They are weakest on side profiles, fast cuts, music videos and clips where the face is small in the frame — exactly the kinds of clips that spread fastest on social media.</p>
+
+      <h2>4. Audio Analysis: Is the Voice Itself Synthetic?</h2>
+
+      <p>Many fake videos have real footage and fake audio, or fake footage and a cloned voice, so a complete detector also checks the sound. Synthetic speech has its own fingerprints. Detectors analyse the audio for the flat, overly regular prosody of a voice clone — real speech has natural variation in pitch, pace and pauses that clones often smooth away. They look at the frequency spectrum for the tell-tale patterns of a vocoder, the component that turns a model's output into audible sound. They check for background noise: a real recording usually has a consistent room tone, while a generated voice pasted onto a video may have no room tone at all, or a tone that does not match the setting. And they check whether the audio and video were recorded together — a mismatch in echo or environment between the voice and the scene is a warning sign.</p>
+
+      <p>Audio analysis is becoming more important as voice cloning gets better, because a convincing cloned voice makes a fake video far more persuasive. But it has the same weakness as every other method: compression. Social platforms compress audio aggressively, and a low-bitrate audio track may carry almost no usable evidence. A clip with music over the voice, or with the voice recorded on a poor microphone, is harder to analyse than a clean studio recording — and most viral clips are the former, not the latter.</p>
+
+      <h2>5. Metadata and Provenance: What the File Says About Itself</h2>
+
+      <p>Before any frame is analysed, a detector can read the file itself. Video files carry metadata: the encoder that wrote them, the creation date, the camera or software that produced them, and — increasingly — content credentials under the C2PA standard that record whether a clip was generated, edited, or captured by a camera. Some platforms also embed watermarks or provenance signals in AI-generated video at the point of creation. When these signals are present, they are useful evidence, and a clear generator signature is worth more than any statistical test.</p>
+
+      <p>But metadata is the most fragile signal of all, and video is the worst case for it. Every upload, download and re-encode strips metadata, and a clip that has passed through two or three social platforms usually arrives with none left. Provenance signals can also be stripped deliberately, or faked. The absence of metadata proves nothing — it only means the file's history was lost, which happens to real videos all the time. Detectors that rely heavily on metadata will call most viral clips "unknown", which is honest but not very helpful. Metadata is a bonus when it survives, never the basis of a verdict.</p>
+
+      <h2>6. How Video Detectors Combine the Signals</h2>
+
+      <p>In practice, a video detector runs several of these checks in parallel and combines the results. A typical pipeline samples frames, scores them for artifacts, measures temporal consistency across the clip, tracks the face and checks lip-sync, analyses the audio for synthetic speech, and reads whatever metadata survives. A trained model then combines these signals into an overall score — a probability that the video was AI-generated, not a yes-or-no verdict. Some tools also show which parts of the clip drove the verdict, for example by highlighting the seconds where the motion or the lip-sync looked most suspicious.</p>
+
+      <p>The combination matters, because no single check is reliable on its own. A clip can have clean frames and a broken lip-sync, or a perfect lip-sync and impossible motion. The detector's job is to weigh the evidence together, and to be honest about uncertainty when the signals disagree. <a href="https://mirzacreative.github.io/traceface/">Traceface</a> applies the same principle to images — ELA forensics, metadata and AI-signature scans, and CNN analysis with Grad-CAM explanations — and the video pipeline extends that approach across time. You can try the live image demo at <a href="https://traceface.streamlit.app">traceface.streamlit.app</a>, and the project is open source at <a href="https://github.com/mirzacreative/traceface">github.com/mirzacreative/traceface</a>.</p>
+
+      <h2>7. Why Video Is Harder to Detect Than Images</h2>
+
+      <p>Video detection is harder than image detection for four reasons, and all four are getting worse for detectors, not better. First, <strong>compression</strong>: video codecs discard the fine detail that artifact detection needs, and social platforms compress aggressively. Second, <strong>short clips</strong>: a ten-second clip gives a detector far less to work with than a long recording, and short clips are what go viral. Third, <strong>generator quality</strong>: video generators improve with every release, and the newest models produce motion and lip-sync that are close to convincing. Fourth, <strong>mixed content</strong>: many real videos are edited, filtered, stabilised and re-encoded so heavily that they look synthetic to a detector, which raises the false-positive rate and makes every verdict less trustworthy.</p>
+
+      <p>The result is that video detectors are useful supporting tools, not proof — even more so than image detectors. A detector can tell you that a clip shows signs of generation, that its lip-sync is inconsistent, or that its motion does not follow natural patterns. It cannot prove that a video is real, and it cannot prove that it is fake. Any tool that promises perfect video detection is selling something that does not exist, and the claim should be treated as a warning sign about the tool itself.</p>
+
+      <h2>8. A Practical Checklist Before You Trust a Video</h2>
+
+      <ul>
+        <li><strong>Watch it twice, slowly:</strong> look at the hands, the background, the edges of the face — and watch the mouth against the words.</li>
+        <li><strong>Check the source:</strong> who posted it, and does the original account or outlet have a reason to be trusted?</li>
+        <li><strong>Look for the original:</strong> search for the same clip elsewhere. Has it appeared before, with a different story attached?</li>
+        <li><strong>Listen with your eyes closed:</strong> does the voice sound natural, or flat and oddly paced? Then watch with the sound off — does the face still look right?</li>
+        <li><strong>Check the context:</strong> does the event in the video match what is known from other sources — news reports, other footage, witnesses?</li>
+        <li><strong>Run a detector, but read the explanation:</strong> if it flags specific seconds or regions, check whether they make sense.</li>
+        <li><strong>Consider the quality:</strong> a heavily compressed, cropped or re-uploaded clip has lost the traces detectors need — treat the result with extra caution.</li>
+        <li><strong>Do not overstate the result:</strong> say "the detector flagged this video" or "the lip-sync looks inconsistent", not "this video is definitely fake".</li>
+        <li><strong>When in doubt, do not share:</strong> if you cannot verify a video, the safest choice is not to spread it.</li>
+      </ul>
+
+      <h2>The Bottom Line</h2>
+
+      <p>AI-generated video detection works by checking what image detection checks — frame artifacts — and then adding everything that only video has: motion and temporal consistency, lip-sync, and audio analysis, with metadata as a bonus when it survives. It is a genuinely useful technology, and it is getting better. But it is not a truth machine, and it never will be: compression destroys the evidence, generators improve as fast as detectors, short viral clips leave little to analyse, and both kinds of mistake — missing a fake and flagging a real video — are always possible.</p>
+
+      <p>The right way to use a detector is as one tool in a larger habit: watch the clip closely yourself, listen to the voice, check the source, search for the original, and ask whether the story earns your trust. Our guide on <a href="ai-deepfake-detection-how-it-works.html">how AI deepfake detection works</a> explains the image-side methods in detail, and our guide on <a href="how-to-spot-ai-generated-images.html">how to spot AI-generated images</a> covers the manual checks step by step. Use the detector, read its explanation, and then decide for yourself — and when the evidence is not enough, say so plainly and do not share the video.</p>
+
+      <hr>
+
+      <p><a href="https://mirzacreative.github.io/traceface/">← Back to Traceface</a> · Try the live detector at <a href="https://traceface.streamlit.app">traceface.streamlit.app</a> · Source code: <a href="https://github.com/mirzacreative/traceface">github.com/mirzacreative/traceface</a></p>
+
+      <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
+        This site is open source. <a href="https://github.com/mirzacreative/traceface/edit/main/ai-generated-video-detection.html">Improve this page</a>.
+      </div>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>
