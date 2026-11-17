@@ -1,0 +1,143 @@
+<!--
+  Repo: traceface (mirzacreative.github.io/traceface)
+  Filename: deepfake-detection-tools-compared.html
+  Target URL: https://mirzacreative.github.io/traceface/deepfake-detection-tools-compared.html
+  Keyword: deepfake detection tools compared
+  Post-upload steps:
+    1. Upload this file to the traceface repo root (GitHub Pages serves the repo root).
+    2. Add the URL to the EXISTING sitemap.xml in the repo root (created 2026-11-13, currently lists how-to-spot-ai-generated-images.html + ai-deepfake-detection-how-it-works.html + ai-generated-video-detection.html + homepage) with lastmod 2026-11-17. Do NOT create a new sitemap — append to the existing one. robots.txt already exists.
+    3. Link this guide from the homepage (index/README) so visitors and crawlers can find it.
+    4. Request indexing in Google Search Console for the new URL only.
+  NOTE: this is a TOOLS COMPARISON — it compares free deepfake detection tools and how to use them together. It does NOT repeat the how-it-works explainer in ai-generated-video-detection.html (Nov 16) — detection methods are summarised only as a comparison framework, and that post is linked for the detail. No detector is presented as 100% reliable.
+-->
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Deepfake Detection Tools Compared: Free Options (2026)</title>
+    <meta name="description" content="Deepfake detection tools compared: free options checking faces, metadata, audio and AI fingerprints — what each does best, its limits, and how to combine them.">
+    <meta name="keywords" content="deepfake detection tools compared, free deepfake detector, AI deepfake detection tools, deepfake detector free, Traceface">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mirzacreative.github.io/traceface/deepfake-detection-tools-compared.html">
+    <meta property="og:title" content="Deepfake Detection Tools Compared: Free Options (2026)">
+    <meta property="og:description" content="Deepfake detection tools compared: free options checking faces, metadata, audio and AI fingerprints — what each does best, its limits, and how to combine them.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mirzacreative.github.io/traceface/deepfake-detection-tools-compared.html">
+    <meta property="og:site_name" content="traceface">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Deepfake Detection Tools Compared: Free Options (2026)">
+    <meta name="twitter:description" content="Free deepfake detection tools compared — what each one checks, what it does best, and why no single tool is enough on its own.">
+    <meta name="author" content="Muhammad Atif Iqbal">
+    <link rel="stylesheet" href="/traceface/assets/css/style.css?v=54c797dfb6ec0161fd3f2c15f9231aaca5784e9d">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Deepfake Detection Tools Compared: Free Options (2026)","description":"Deepfake detection tools compared: free options checking faces, metadata, audio and AI fingerprints — what each does best, its limits, and how to combine them.","author":{"@type":"Person","name":"Muhammad Atif Iqbal"},"publisher":{"@type":"Organization","name":"Traceface","url":"https://mirzacreative.github.io/traceface/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://mirzacreative.github.io/traceface/deepfake-detection-tools-compared.html"},"url":"https://mirzacreative.github.io/traceface/deepfake-detection-tools-compared.html","datePublished":"2026-11-17","dateModified":"2026-11-17","inLanguage":"en"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Traceface","item":"https://mirzacreative.github.io/traceface/"},{"@type":"ListItem","position":2,"name":"Deepfake Detection Tools Compared","item":"https://mirzacreative.github.io/traceface/deepfake-detection-tools-compared.html"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the best free deepfake detection tool?","acceptedAnswer":{"@type":"Answer","text":"There is no single best tool, because different tools check different things: AI classifiers score images and video for generation artifacts, metadata checkers read the file's history and content credentials, and forensic tools examine pixels and compression. The best free approach is to combine two or three tools that check different signals, and to add manual inspection and a source check — agreement across tools is far more trustworthy than any one result."}},{"@type":"Question","name":"Are free deepfake detectors reliable?","acceptedAnswer":{"@type":"Answer","text":"No detector is 100% reliable, free or paid. Detectors return a probability, not a verdict, and they make both kinds of mistake: missing a well-made fake and wrongly flagging a real photo or video, especially one that is heavily compressed, cropped or re-uploaded. Treat a detector result as evidence to weigh alongside the source, the context and your own inspection — never as proof on its own."}},{"@type":"Question","name":"Can I detect a deepfake without any tool?","acceptedAnswer":{"@type":"Answer","text":"Often you can raise a strong suspicion without a tool: check the hands, the teeth and the ears in images; watch the lip-sync and the background in video; listen for a flat or oddly paced voice; and search for the original source of the clip. Manual checks catch many obvious fakes, but the best-made fakes need a detector as well — the two methods work better together than either does alone."}},{"@type":"Question","name":"What should I do if different detectors disagree?","acceptedAnswer":{"@type":"Answer","text":"Treat disagreement as a signal to slow down, not to pick the answer you prefer. Re-check with the original, highest-quality file if you can get it, run a reverse image or video search, check who posted it and whether a trusted source confirms the story, and inspect the clip yourself. If the evidence still does not settle it, say so plainly and do not share the content as verified."}}]}</script>
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+
+      <div style="font-size: 2em; font-weight: bold; margin: 0.67em 0;"><a href="https://mirzacreative.github.io/traceface/">traceface</a></div>
+
+      <p><a href="https://mirzacreative.github.io/traceface/">← Back to Traceface</a></p>
+
+      <h1 id="deepfake-detection-tools-compared">Deepfake Detection Tools Compared: Free Options</h1>
+
+      <p><em>November 17, 2026 · Muhammad Atif Iqbal</em></p>
+
+      <p>You have a suspicious image or video, and you want an answer. The problem is not a lack of tools — it is knowing which one to use, what it actually checks, and how much to trust the result. Some tools score an image for AI generation. Some read the file's metadata and content credentials. Some scan video for face swaps. Some check whether a voice was cloned. No single tool does all of it, and no tool is always right. This guide compares the free deepfake detection tools that actually work: what each type of tool checks, which well-known options offer a free tier, how to combine them, where they fail, and when a result is worth trusting. It is a companion to our explainer on <a href="ai-generated-video-detection.html">how AI-generated video detection works</a> — that guide explains the methods in detail, and this one tells you which tools to reach for and in what order. The honest headline first: <strong>no detector is 100% reliable</strong>, and any tool that claims otherwise should not be trusted.</p>
+
+      <p>Before choosing a tool, it helps to know what the tools are checking. Broadly, there are five kinds of evidence. <strong>Face and frame inconsistencies</strong> — hands, teeth, ears, skin texture, lip-sync and motion that do not behave like a real recording. <strong>Metadata and provenance</strong> — what the file says about where it came from, including content credentials that record whether it was generated or edited. <strong>Audio signals</strong> — flat prosody, vocoder fingerprints and missing room tone in a cloned voice. <strong>AI classifier scores</strong> — a trained model that has learned the statistical fingerprints of generated media and returns a probability. And <strong>source and context</strong> — who posted it, whether the original exists, and whether trusted sources confirm the story. The last one is not a tool at all, but it is often the most decisive check you have. The tools below are organised by which of these they cover, because the right combination is one tool from each category, not three tools that all do the same thing.</p>
+
+      <h2>1. AI Classifiers: Upload and Get a Score</h2>
+
+      <p>AI classifiers are the tools most people mean when they say "deepfake detector": you upload an image or a video, and the tool returns a score — a probability that the media was AI-generated. They work by comparing the file against patterns learned from large collections of real and generated media. <strong>Hive Moderation</strong> is one of the best-known options in this category, offering a free demo and free checks for images, video and audio through its web interface, with a clear score and an explanation of what drove it. <strong>Reality Defender</strong> is another well-known platform in this space, built around detecting AI-generated images, video and audio, and it offers free individual checks alongside its paid plans. Both are genuinely useful as a first pass: they are fast, they need no installation, and they give you a number you can compare against other tools.</p>
+
+      <p>But a score is not a verdict, and classifiers have specific weaknesses. They are trained on the generators that existed when they were built, so they are weakest on the newest models. They struggle with heavily compressed or re-uploaded media, because compression destroys the fine patterns they look for. They can be fooled by a real photo that has been heavily edited, filtered or upscaled, which can look synthetic to a model. And their scores are hard to interpret: a result of "72% likely AI-generated" is not the same as "this is fake", and different tools will give different numbers for the same file. Use a classifier as a screening test, not as the final word — and always run the same file through a second tool that checks something different before you draw a conclusion.</p>
+
+      <h2>2. Metadata and Provenance Checkers: Read the File's History</h2>
+
+      <p>Before any frame is analysed, the file itself can tell you something. Metadata checkers read the information embedded in the file: the software that created it, the camera or encoder, the creation date, and — increasingly — content credentials under the C2PA standard, which record whether a piece of media was generated by AI, edited, or captured by a camera. The free <strong>Content Credentials verification tool</strong> (verify.contentauthenticity.org) lets you upload a file and see its provenance record if one exists, and it costs nothing to use. Browser extensions in this category, such as the free <strong>InVID-WeVerify</strong> toolkit built for journalists, can pull metadata, thumbnails and keyframes from a video and help you trace where it first appeared.</p>
+
+      <p>The strength of provenance checking is that a clear record is strong evidence: a file whose credentials say it was generated by a named AI tool is almost certainly generated. The weakness is that the record usually does not survive. Every upload, download and re-encode strips metadata, and a clip that has passed through two or three social platforms typically arrives with nothing left. Provenance can also be stripped deliberately, or faked. So treat metadata as a bonus, not a basis: when a provenance record is present, read it carefully; when it is absent, that proves nothing at all — it only means the file's history was lost, which happens to real media all the time. A detector that relies only on metadata will call most viral clips "unknown", which is honest but not very helpful on its own.</p>
+
+      <h2>3. Forensic and Frame Scanners: Examine the Pixels</h2>
+
+      <p>Forensic tools work at the pixel level rather than the model level: they look for the traces that generation and editing leave in the image data itself. <strong>Deepware Scanner</strong> is a well-known free option in this category — an online scanner that accepts a video link or upload and reports whether it shows signs of manipulation, using a combination of trained models. General forensic techniques in this family include error-level analysis (ELA), which highlights regions of an image that were compressed differently from the rest, and noise analysis, which looks for the sensor pattern a real camera leaves behind. <a href="https://mirzacreative.github.io/traceface/">Traceface</a> itself works this way for images, combining ELA forensics, metadata and AI-signature scans with CNN analysis and Grad-CAM explanations — you can try the live image demo at <a href="https://traceface.streamlit.app">traceface.streamlit.app</a>, and the project is open source at <a href="https://github.com/mirzacreative/traceface">github.com/mirzacreative/traceface</a>.</p>
+
+      <p>Forensic scanners are at their best on high-quality, original files, where the pixel evidence is intact. They are at their worst on the files that actually go viral, because compression, cropping and re-uploading destroy the traces they depend on. A heavily compressed real video can look manipulated to a forensic tool, and a carefully made fake that has been downscaled can look clean. Forensic tools are also slower and more technical than classifiers, and their output — a heatmap, an error-level image, a set of highlighted regions — needs interpretation. Use them when you have the original file and the result matters, and read the explanation rather than just the headline score. If you want the underlying methods explained, our guide on <a href="ai-deepfake-detection-how-it-works.html">how AI deepfake detection works</a> covers pixel artifacts, frequency analysis and model fingerprints in detail.</p>
+
+      <h2>4. Research and Limited-Availability Tools: Powerful, But Not for Everyone</h2>
+
+      <p>Some of the most talked-about detection tools are not freely available to the public, and it is important to know which ones those are so you do not waste time hunting for them. <strong>Intel FakeCatcher</strong> is a research system that detects fake video in real time by measuring subtle blood-flow signals in a person's face — real blood flow creates tiny colour changes that generated faces do not reproduce. It has shown strong results in testing, but it is a research project, not a free consumer tool you can upload a clip to. <strong>Microsoft Video Authenticator</strong> is in a similar position: a tool that scores a video for manipulation, released for use by journalists, researchers and selected partners rather than as a general public service. Both matter because they show where detection is heading — towards signals that are hard to fake, like physiology — but neither is something you can use on a suspicious clip today.</p>
+
+      <p>The practical lesson is to be suspicious of websites that claim to offer these tools for free. A site that promises "Intel FakeCatcher online" or "Microsoft Video Authenticator free check" is either mislabelled or a scam, and uploading a file to it is a bad idea. The same caution applies to any detector that asks you to install software from an unknown source, or that demands payment before showing any result. Stick to the well-known free options in the categories above, and treat a tool's availability honestly: if a respected tool is research-only, say so, and use the tools that are actually available to you.</p>
+
+      <h2>5. Audio and Voice Checks: Is the Voice Itself Synthetic?</h2>
+
+      <p>Many fake videos have real footage and a cloned voice, or a real voice pasted onto generated footage, so a complete check also covers the audio. Some of the classifier platforms above, including Hive Moderation and Reality Defender, accept audio files and score them for synthetic speech. Dedicated voice checks look for the fingerprints of a vocoder — the component that turns a model's output into audible sound — and for the flat, overly regular rhythm of a cloned voice, which often lacks the natural variation in pitch, pace and pauses of real speech. They also check the background: a real recording usually has a consistent room tone, while a generated voice pasted onto a video may have no room tone at all, or one that does not match the scene.</p>
+
+      <p>Audio checks have the same weakness as every other method: compression. Social platforms compress audio aggressively, and a low-bitrate audio track may carry almost no usable evidence. A clip with music over the voice, or a voice recorded on a poor microphone, is harder to analyse than a clean studio recording — and most viral clips are the former. Audio tools are also weaker on short clips, where there is simply not enough speech to judge. Use them as a supporting check, especially when the voice is the whole point of the clip — a politician saying something surprising, a celebrity endorsing a product — and combine them with the oldest audio test there is: listen with your eyes closed, and ask whether the voice sounds like a real person speaking, or like a recording of one.</p>
+
+      <h2>6. Reverse Search and Source Checks: The Free Tool Everyone Forgets</h2>
+
+      <p>The most powerful free check is not a detector at all: it is finding out where a piece of media came from. A reverse image search, using the image search engines built into the major search platforms, can show you whether a photo appeared online before, with a different story attached — the classic sign of a recycled or misattributed image. For video, a reverse search on a keyframe, or searching for a distinctive phrase from the clip, often finds the original. Checking the account that posted it matters just as much: a new account with no history, a username that mimics a real outlet, or a post with no source attached are all warning signs. And checking whether a trusted news outlet, the person in the clip, or an official account confirms the story will settle many cases faster than any detector.</p>
+
+      <p>Source checks are free, they need no upload, and they work on compressed, cropped and re-uploaded media that defeats every technical tool. Their weakness is that they only help when the media has appeared before, or when the story can be checked against other sources — a genuinely new fake of a private person may have no history to find. That is exactly when the technical tools earn their keep. The right habit is to run the source check first, because it is fast and often decisive, and then to use the detectors when the source check does not settle the question.</p>
+
+      <h2>Comparison at a Glance</h2>
+
+      <p>The table below summarises the free options discussed above. "Free" means a free tier, demo or check is offered without payment; paid plans exist for heavier use on most of these platforms, and availability can change, so check the tool's own site before relying on it.</p>
+
+      <table>
+        <tr><th>Tool</th><th>Category</th><th>Free option</th><th>What it checks</th><th>Best for</th><th>Main limit</th></tr>
+        <tr><td>Hive Moderation</td><td>AI classifier</td><td>Free demo / free checks</td><td>Images, video, audio for AI generation</td><td>Fast first screening</td><td>Scores vary; weak on newest generators and compressed files</td></tr>
+        <tr><td>Reality Defender</td><td>AI classifier</td><td>Free individual checks</td><td>Images, video, audio for AI generation</td><td>Quick multi-format check</td><td>A score is not a verdict; free tier is limited</td></tr>
+        <tr><td>Content Credentials verify</td><td>Provenance</td><td>Free</td><td>C2PA content credentials and edit history</td><td>Confirming a file's stated origin</td><td>Most viral files have no credentials left</td></tr>
+        <tr><td>InVID-WeVerify</td><td>Metadata / forensic toolkit</td><td>Free browser extension</td><td>Metadata, keyframes, reverse search</td><td>Journalist-style verification</td><td>Needs some practice to use well</td></tr>
+        <tr><td>Deepware Scanner</td><td>Forensic scanner</td><td>Free online scan</td><td>Video for manipulation signals</td><td>Video deepfake screening</td><td>Weak on compressed or short clips</td></tr>
+        <tr><td>Traceface</td><td>Forensic + classifier</td><td>Free, open source</td><td>Images: ELA, metadata, AI signatures</td><td>Image checks with explanations</td><td>Images only; video support is separate</td></tr>
+        <tr><td>Intel FakeCatcher</td><td>Research</td><td>Not publicly available</td><td>Real-time blood-flow signals in video</td><td>Shows where detection is heading</td><td>Research project, not a usable tool</td></tr>
+        <tr><td>Microsoft Video Authenticator</td><td>Research / limited access</td><td>Not publicly available</td><td>Video manipulation scoring</td><td>Newsroom and research use</td><td>Limited availability; beware copycat sites</td></tr>
+        <tr><td>Reverse image search</td><td>Source check</td><td>Free</td><td>Whether media appeared before</td><td>Catching recycled or misattributed media</td><td>Helps only when the media has a history</td></tr>
+      </table>
+
+      <h2>How to Use Them Together: A Practical Workflow</h2>
+
+      <p>No single tool is enough, but a short workflow that combines them is far stronger than any one result. It takes a few minutes, and it is worth doing before you share or act on a suspicious clip.</p>
+
+      <ol>
+        <li><strong>Start with the source.</strong> Who posted it? Is the account real and established? Does a trusted source confirm the story? Run a reverse image search on a still frame, and search for a distinctive phrase from the clip. If the media appeared before with a different story, you already have your answer.</li>
+        <li><strong>Check provenance.</strong> Upload the original file, if you have it, to the Content Credentials verification tool and look at its metadata. A clear generator signature is strong evidence; an empty result means nothing on its own.</li>
+        <li><strong>Run two classifiers that check different things.</strong> Use one AI classifier, such as Hive Moderation, and one forensic check, such as Deepware Scanner for video or Traceface for images. Two tools that agree are much more convincing than one tool alone — and if they disagree, that is itself information.</li>
+        <li><strong>Inspect it yourself.</strong> Watch the video twice, slowly: the hands, the background, the edges of the face, the mouth against the words. Listen with your eyes closed. For images, use our guide on <a href="how-to-spot-ai-generated-images.html">how to spot AI-generated images</a> for the manual checks step by step.</li>
+        <li><strong>Weigh the evidence and state it honestly.</strong> Say "two detectors flagged this video and the lip-sync looks inconsistent" or "the detectors disagree and the source cannot be confirmed" — not "this is definitely fake" or "this is definitely real". If the evidence does not settle it, say so plainly and do not share the clip as verified.</li>
+      </ol>
+
+      <h2>The Limits: What No Free Tool Can Do</h2>
+
+      <p>It is worth being direct about the limits, because they decide how much any result is worth. First, <strong>compression</strong>: every upload and re-encode strips the fine detail that detectors rely on, and social platforms compress aggressively. A clip that has been through two or three platforms may carry almost no usable evidence. Second, <strong>short clips</strong>: a ten-second video gives a detector far less to work with than a long recording, and short clips are what go viral. Third, <strong>generator quality</strong>: generators improve with every release, and the newest models produce faces, motion and voices that are close to convincing. Fourth, <strong>false positives</strong>: heavily compressed, stabilised, filtered or upscaled real media can look synthetic to a detector, so a "likely AI" result can be wrong. Fifth, <strong>mixed content</strong>: a real video that has been edited, face-swapped in one shot, or dubbed with a cloned voice is partly real and partly fake, and no single score captures that. A free tool is a useful instrument, but it is not a truth machine, and a paid tool is not one either — the limits above apply to the whole field, not just to the free tier.</p>
+
+      <h2>When to Trust a Result</h2>
+
+      <p>Trust a result when several kinds of evidence point the same way: two different tools flag the same clip, the manual inspection finds the same problem the tools found, the provenance record agrees, and the source cannot be confirmed by any trusted outlet. That combination is strong, and it is the closest detection gets to an answer. Distrust a result when it stands alone: one tool flags a heavily compressed clip, no other tool agrees, and your own inspection finds nothing wrong — that is more likely a false positive than a discovery. Distrust it also when a tool promises certainty: "100% AI-generated" or "definitely real" are claims no honest detector makes, because detection is probabilistic by nature. And remember the asymmetry: a detector can give you good reason to doubt a clip, but it can never prove a clip is real. The absence of a flag means "no signs found in this file at this quality", not "this is authentic". The right question is never "what did the tool say?" but "what does all the evidence say, together?"</p>
+
+      <h2>The Bottom Line</h2>
+
+      <p>Free deepfake detection tools are genuinely useful, and they are better used together than alone. Start with the source check and a reverse search, because they are free, fast, and often decisive. Add a provenance check when the original file is available. Run an AI classifier and a forensic scanner that check different signals, and compare their results. Inspect the media yourself, using the manual checks in our <a href="how-to-spot-ai-generated-images.html">guide to spotting AI-generated images</a> and our <a href="ai-generated-video-detection.html">guide to how video detection works</a>. And be honest about what the evidence shows: detectors return probabilities, not verdicts, and no tool — free or paid — is 100% reliable. The tools will keep improving, and so will the generators. The habit that keeps working is the same one journalists use: check the source, check the file, check it with more than one tool, look at it yourself, and do not share what you cannot verify.</p>
+
+      <hr>
+
+      <p><a href="https://mirzacreative.github.io/traceface/">← Back to Traceface</a> · Try the live detector at <a href="https://traceface.streamlit.app">traceface.streamlit.app</a> · Source code: <a href="https://github.com/mirzacreative/traceface">github.com/mirzacreative/traceface</a></p>
+
+      <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
+        This site is open source. <a href="https://github.com/mirzacreative/traceface/edit/main/deepfake-detection-tools-compared.html">Improve this page</a>.
+      </div>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>
