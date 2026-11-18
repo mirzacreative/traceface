@@ -1,32 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://mirzacreative.github.io/traceface/</loc>
-    <lastmod>2026-11-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://mirzacreative.github.io/traceface/how-to-spot-ai-generated-images.html</loc>
-    <lastmod>2026-11-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://mirzacreative.github.io/traceface/ai-deepfake-detection-how-it-works.html</loc>
-    <lastmod>2026-11-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://mirzacreative.github.io/traceface/ai-generated-video-detection.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+<url>
+  <loc>https://mirzacreative.github.io/traceface/</loc>
+  <lastmod>2026-11-13</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>1.0</priority>
+</url>
+<url>
+  <loc>https://mirzacreative.github.io/traceface/how-to-spot-ai-generated-images.html</loc>
+  <lastmod>2026-11-13</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://mirzacreative.github.io/traceface/ai-deepfake-detection-how-it-works.html</loc>
+  <lastmod>2026-11-14</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://mirzacreative.github.io/traceface/ai-generated-video-detection.html</loc>
+  <lastmod>2026-11-16</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
 <url>
   <loc>https://mirzacreative.github.io/traceface/deepfake-detection-tools-compared.html</loc>
   <lastmod>2026-11-17</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://mirzacreative.github.io/traceface/ai-image-detection-tools-compared.html</loc>
+  <lastmod>2026-11-18</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.8</priority>
 </url>
