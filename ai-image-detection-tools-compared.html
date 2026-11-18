@@ -1,0 +1,136 @@
+<!--
+  Repo: traceface (mirzacreative.github.io/traceface)
+  Filename: ai-image-detection-tools-compared.html
+  Target URL: https://mirzacreative.github.io/traceface/ai-image-detection-tools-compared.html
+  Keyword: AI image detection tools compared
+  Post-upload steps:
+    1. Upload this file to the traceface repo root (GitHub Pages serves the repo root).
+    2. Add the URL to the EXISTING sitemap.xml in the repo root with lastmod 2026-11-18. Do NOT create a new sitemap — append to the existing one. robots.txt already exists.
+    3. Link this guide from the homepage (index/README) so visitors and crawlers can find it.
+    4. Request indexing in Google Search Console for the new URL only.
+  NOTE: this is an IMAGE-DETECTOR comparison — still images only; it does NOT repeat the video-tool comparison in deepfake-detection-tools-compared.html. No detector is presented as 100% reliable.
+-->
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Image Detection Tools Compared (2026)</title>
+    <meta name="description" content="AI image detection tools compared: free classifiers, provenance checks and forensic analysis — what each tool checks, its limits, and how to combine them.">
+    <meta name="keywords" content="AI image detection tools compared, free AI image detector, AI image detector free, detect AI generated image, Traceface">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mirzacreative.github.io/traceface/ai-image-detection-tools-compared.html">
+    <meta property="og:title" content="AI Image Detection Tools Compared (2026)">
+    <meta property="og:description" content="AI image detection tools compared: free classifiers, provenance checks and forensic analysis — what each tool checks, its limits, and how to combine them.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mirzacreative.github.io/traceface/ai-image-detection-tools-compared.html">
+    <meta property="og:site_name" content="traceface">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AI Image Detection Tools Compared (2026)">
+    <meta name="twitter:description" content="AI image detection tools compared: free classifiers, provenance checks and forensic analysis — what each tool checks, its limits, and how to combine them.">
+    <meta name="author" content="Muhammad Atif Iqbal">
+    <link rel="stylesheet" href="/traceface/assets/css/style.css?v=54c797dfb6ec0161fd3f2c15f9231aaca5784e9d">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"AI Image Detection Tools Compared (2026)","description":"AI image detection tools compared: free classifiers, provenance checks and forensic analysis — what each tool checks, its limits, and how to combine them.","author":{"@type":"Person","name":"Muhammad Atif Iqbal"},"publisher":{"@type":"Organization","name":"Traceface","url":"https://mirzacreative.github.io/traceface/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://mirzacreative.github.io/traceface/ai-image-detection-tools-compared.html"},"url":"https://mirzacreative.github.io/traceface/ai-image-detection-tools-compared.html","datePublished":"2026-11-18","dateModified":"2026-11-18","inLanguage":"en"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Traceface","item":"https://mirzacreative.github.io/traceface/"},{"@type":"ListItem","position":2,"name":"AI Image Detection Tools Compared","item":"https://mirzacreative.github.io/traceface/ai-image-detection-tools-compared.html"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the best free AI image detection tool?","acceptedAnswer":{"@type":"Answer","text":"There is no single best tool, because different tools check different things: AI classifiers return a probability that an image was generated, provenance checkers read content credentials and metadata, forensic tools examine pixels and compression, and reverse image search checks whether the image appeared online before. The best free approach is to combine two or three tools that check different signals, and to add manual inspection and a source check — agreement across tools is far more trustworthy than any one result."}},{"@type":"Question","name":"Are AI image detectors reliable?","acceptedAnswer":{"@type":"Answer","text":"No detector is 100% reliable, free or paid. Detectors return a probability, not a verdict, and they make both kinds of mistake: missing a well-made AI image and wrongly flagging a real photo, especially one that is heavily compressed, cropped, filtered or re-uploaded. Treat a detector result as evidence to weigh alongside the source, the context and your own inspection — never as proof on its own."}},{"@type":"Question","name":"Can I detect an AI-generated image without any tool?","acceptedAnswer":{"@type":"Answer","text":"Often you can raise a strong suspicion without a tool: check the hands, the teeth, the ears and the text in the image; look for inconsistent lighting, impossible background details and objects that merge into each other; and search for the original source of the picture. Manual checks catch many obvious fakes, but the best-made AI images need a detector as well — the two methods work better together than either does alone."}},{"@type":"Question","name":"What should I do if different image detectors disagree?","acceptedAnswer":{"@type":"Answer","text":"Treat disagreement as a signal to slow down, not to pick the answer you prefer. Re-check with the original, highest-quality file if you can get it, run a reverse image search, check who posted the image and whether a trusted source confirms the story, and inspect the image yourself. If the evidence still does not settle it, say so plainly and do not share the image as verified."}}]}</script>
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+
+      <div style="font-size: 2em; font-weight: bold; margin: 0.67em 0;"><a href="https://mirzacreative.github.io/traceface/">traceface</a></div>
+
+      <p><a href="https://mirzacreative.github.io/traceface/">← Back to Traceface</a></p>
+
+      <h1 id="ai-image-detection-tools-compared">AI Image Detection Tools Compared</h1>
+
+      <p><em>November 18, 2026 · Muhammad Atif Iqbal</em></p>
+
+      <p>You have a suspicious still image — a photo that looks too perfect, a news picture that does not feel right — and you want an answer. The problem is not a lack of tools. It is knowing which one to use, what it actually checks, and how much to trust the result. Some tools score an image for AI generation. Some read the file's metadata and content credentials. Some examine the pixels for the traces that generation and editing leave behind. Some check whether the same picture already appeared online with a different story attached. This guide compares the free AI image detection tools that actually work for still images: what each type of tool checks, which well-known options offer a free tier, how to combine them, where they fail, and when a result is worth trusting. It is a companion to our guide on <a href="how-to-spot-ai-generated-images.html">how to spot AI-generated images</a> — that guide teaches the manual checks, and this one tells you which tools to reach for and in what order. The honest headline first: <strong>no detector is 100% reliable</strong>, and any tool that claims otherwise should not be trusted.</p>
+
+      <p>This comparison covers still images only. Video-only tools are not image tools, and they are not presented as such here — video detection is covered in our companion comparison, <a href="deepfake-detection-tools-compared.html">deepfake detection tools compared</a>. Before choosing a tool, it helps to know what the tools are checking. Broadly, there are four kinds of evidence. <strong>AI classifier scores</strong> — a trained model that has learned the statistical fingerprints of generated images and returns a probability. <strong>Metadata and provenance</strong> — what the file says about where it came from, including content credentials that record whether it was generated or edited. <strong>Forensic pixel analysis</strong> — error-level analysis, noise patterns and compression traces that reveal editing or generation in the image data itself. And <strong>source and context</strong> — who posted it, whether the original exists, and whether trusted sources confirm the story. The last one is not a detector at all, but it is often the most decisive check you have.</p>
+
+      <h2>1. AI Classifiers: Upload an Image and Get a Score</h2>
+
+      <p>AI classifiers are the tools most people mean when they say "AI image detector": you upload a still image, and the tool returns a score — a probability that the image was AI-generated. They work by comparing the image against patterns learned from large collections of real and generated pictures. <strong>Hive Moderation</strong> is one of the best-known options, offering a free demo and a limited number of free image checks through its web interface, with a clear score and an explanation of what drove it. <strong>Illuminarty</strong> is another well-known image classifier, built specifically around still images, with a free tier offering a limited number of checks. <strong>AI or Not</strong> is a similar image-focused checker that returns a probability score for a single upload, with a free tier for occasional use, and <strong>Sightengine</strong>, a longer-established moderation platform that includes an AI-generated image classifier, also with a free tier for a limited number of checks. All four are useful as a first pass: they are fast, they need no installation, and they give you a number you can compare against other tools.</p>
+
+      <p>But a score is not a verdict, and classifiers have specific weaknesses. They are trained on the generators that existed when they were built, so they are weakest on the newest image models. They struggle with heavily compressed or re-uploaded images, because compression destroys the fine patterns they look for. They can be fooled by a real photo that has been heavily edited, filtered or upscaled, which can look synthetic to a model. And their scores are hard to interpret: "likely AI-generated" is not the same as "this is fake", and different tools will give different numbers for the same image. Use a classifier as a screening test, not as the final word.</p>
+
+      <h2>2. Metadata and Provenance Checkers: Read the File's History</h2>
+
+      <p>Before any pixel is analysed, the file itself can tell you something. Metadata checkers read the information embedded in the image file: the software that created it, the camera or encoder, the creation date, and — increasingly — content credentials under the C2PA standard, which record whether a picture was generated by AI, edited, or captured by a camera. The free <strong>Content Credentials verification tool</strong> (verify.contentauthenticity.org) lets you upload an image and see its provenance record if one exists, and it costs nothing to use.</p>
+
+      <p>The strength of provenance checking is that a clear record is strong evidence: an image whose credentials say it was generated by a named AI tool is almost certainly generated. The weakness is that the record usually does not survive. Every upload, download and re-encode strips metadata, and an image that has passed through two or three social platforms typically arrives with nothing left. Provenance can also be stripped deliberately, or faked. So treat metadata as a bonus, not a basis: when a provenance record is present, read it carefully; when it is absent, that proves nothing at all — it only means the file's history was lost, which happens to real photos all the time.</p>
+
+      <h2>3. Forensic Pixel Analysis: ELA, Noise and the Traces in the Data</h2>
+
+      <p>Forensic tools work at the pixel level rather than the model level: they look for the traces that generation and editing leave in the image data itself. The best-known technique is <strong>error-level analysis (ELA)</strong>, which re-saves an image and highlights the regions that were compressed differently from the rest — a pasted or painted-in area often lights up against the background, because it went through a different compression history. <strong>Noise analysis</strong> looks for the sensor pattern a real camera leaves behind: every camera sensor adds a faint, consistent noise signature, and a generated or heavily edited region usually lacks it. These methods need no training data and no account — but their output is a picture, not a verdict, and it needs interpretation.</p>
+
+      <p>Forensic analysis is at its best on high-quality, original files, where the pixel evidence is intact. It is at its worst on the images that actually go viral, because compression, cropping and re-uploading destroy the traces it depends on. A heavily compressed real photo can look manipulated to a forensic tool, and a carefully made AI image that has been downscaled can look clean. Forensic tools are also slower and more technical than classifiers, and a heatmap that lights up around a face may mean editing, or it may mean that the face was sharpened or brightened. The free <strong>InVID-WeVerify</strong> toolkit, built for journalists, belongs partly in this category: as a free browser extension it can pull metadata, run forensic checks and help you trace where an image first appeared — though it needs some practice to use well. If you want the underlying methods explained, our guide on <a href="ai-deepfake-detection-how-it-works.html">how AI deepfake detection works</a> covers pixel artifacts and model fingerprints in detail.</p>
+
+      <h2>4. Reverse Image Search and Source Checks: The Free Tool Everyone Forgets</h2>
+
+      <p>The most powerful free check is not a detector at all: it is finding out where a picture came from. A reverse image search, using the image search engines built into the major search platforms, can show you whether a photo appeared online before, with a different story attached — the classic sign of a recycled or misattributed image. Checking the account that posted it matters just as much: a new account with no history, a username that mimics a real outlet, or a post with no source attached are all warning signs.</p>
+
+      <p>Source checks are free, they need no upload, and they work on compressed, cropped and re-uploaded images that defeat every technical tool. Their weakness is that they only help when the image has appeared before, or when the story can be checked against other sources — a genuinely new AI image of a private person may have no history to find. The right habit is to run the source check first, because it is fast and often decisive, and then to use the detectors when the source check does not settle the question.</p>
+
+      <h2>5. Traceface: A Free Open-Source Image Checker</h2>
+
+      <p><a href="https://mirzacreative.github.io/traceface/">Traceface</a> is this site's own free, open-source image detection tool, designed to combine several of the methods above in one place. For a still image it runs error-level analysis (ELA) forensics, reads the file's metadata, scans for AI signatures, and applies CNN analysis with Grad-CAM explanations — heatmaps that show which parts of the image drove the model's judgement, so you can see the reasoning rather than just a number. You can try the live image demo at <a href="https://traceface.streamlit.app">traceface.streamlit.app</a>, and the project is open source at <a href="https://github.com/mirzacreative/traceface">github.com/mirzacreative/traceface</a>.</p>
+
+      <p>Traceface is free, and its explanations are its real strength: a flagged region on an ELA heatmap, or a Grad-CAM highlight over a hand or a patch of background, gives you something concrete to look at and judge for yourself. Its limits are the same as every image tool's limits. It works on still images, not video — video detection is covered in our companion post on <a href="deepfake-detection-tools-compared.html">deepfake detection tools compared</a> and in our explainer on <a href="ai-generated-video-detection.html">how AI-generated video detection works</a>. Like every other tool, it is weakened by compression: a low-quality copy carries less evidence than the original. Use it as one check among several — alongside a classifier such as Hive Moderation and a reverse image search.</p>
+
+      <h2>Comparison at a Glance</h2>
+
+      <p>The table below summarises the free options above. "Free" means a free tier, demo or check is offered without payment; paid plans exist for heavier use, and availability can change, so check the tool's own site.</p>
+
+      <table>
+        <tr><th>Tool</th><th>Category</th><th>Free option</th><th>What it checks</th><th>Best for</th><th>Main limit</th></tr>
+        <tr><td>Hive Moderation</td><td>AI classifier</td><td>Free demo / limited free checks</td><td>Still images for AI generation</td><td>Fast first screening</td><td>Weak on newest generators and compressed files</td></tr>
+        <tr><td>Illuminarty</td><td>AI classifier</td><td>Free tier / limited free checks</td><td>Still images for AI generation</td><td>Image-only quick check</td><td>A score is not a verdict; free tier is limited</td></tr>
+        <tr><td>AI or Not</td><td>AI classifier</td><td>Free tier / limited free checks</td><td>Still images for AI generation</td><td>Simple single-image check</td><td>Weak on compressed or heavily edited images</td></tr>
+        <tr><td>Sightengine</td><td>AI classifier</td><td>Free tier / limited free checks</td><td>Still images for AI generation</td><td>Quick check alongside moderation signals</td><td>Scores vary between tools; free tier is limited</td></tr>
+        <tr><td>Content Credentials verify</td><td>Provenance</td><td>Free</td><td>C2PA credentials and edit history</td><td>Confirming an image's stated origin</td><td>Most viral images have no credentials left</td></tr>
+        <tr><td>InVID-WeVerify</td><td>Metadata / forensic toolkit</td><td>Free browser extension</td><td>Metadata, forensics, reverse search</td><td>Journalist-style verification</td><td>Needs some practice to use well</td></tr>
+        <tr><td>Traceface</td><td>Forensic + classifier</td><td>Free, open source</td><td>Images: ELA, metadata, AI signatures, CNN + Grad-CAM</td><td>Image checks with explanations</td><td>Still images only; weak on compressed copies</td></tr>
+        <tr><td>Reverse image search</td><td>Source check</td><td>Free</td><td>Whether an image appeared before</td><td>Catching recycled or misattributed images</td><td>Helps only when the image has a history</td></tr>
+      </table>
+
+      <h2>How to Use Them Together: A Practical Workflow</h2>
+
+      <p>No single tool is enough, but a short workflow that combines them is far stronger than any one result.</p>
+
+      <ol>
+        <li><strong>Start with the source.</strong> Who posted it? Is the account real and established? Run a reverse image search. If the image appeared before with a different story, you already have your answer.</li>
+        <li><strong>Check provenance.</strong> Upload the original file, if you have it, to the Content Credentials verification tool. A clear generator signature is strong evidence; an empty result means nothing on its own.</li>
+        <li><strong>Run two tools that check different things.</strong> Use one AI classifier, such as Hive Moderation or Illuminarty, and one forensic check, such as Traceface or InVID-WeVerify. Two tools that agree are much more convincing than one alone — and if they disagree, that is itself information.</li>
+        <li><strong>Inspect it yourself.</strong> Look at the image slowly, at full size: the hands, the teeth, the ears, any text, the lighting and the background. For the manual checks step by step, use our guide on <a href="how-to-spot-ai-generated-images.html">how to spot AI-generated images</a>.</li>
+        <li><strong>Weigh the evidence and state it honestly.</strong> Say "two detectors flagged this image and the hands look inconsistent" or "the detectors disagree and the source cannot be confirmed" — not "this is definitely fake" or "this is definitely real". If the evidence does not settle it, say so plainly and do not share the image as verified.</li>
+      </ol>
+
+      <h2>The Limits: What No Free Tool Can Do</h2>
+
+      <p>It is worth being direct about the limits, because they decide how much any result is worth. First, <strong>compression</strong>: every upload and re-encode strips the fine detail that detectors rely on, and social platforms compress aggressively. Second, <strong>small or cropped images</strong>: a thumbnail or a tight crop gives a detector far less to work with than a full-resolution original. Third, <strong>generator quality</strong>: image generators improve with every release, and the newest models produce faces, hands and textures that are close to convincing. Fourth, <strong>false positives</strong>: heavily compressed, filtered or upscaled real photos can look synthetic to a detector, so a "likely AI" result can be wrong. Fifth, <strong>mixed content</strong>: a real photo edited or inpainted in one area is partly real and partly fake, and no single score captures that.</p>
+
+      <h2>When to Trust a Result</h2>
+
+      <p>Trust a result when several kinds of evidence point the same way: two different tools flag the same image, the manual inspection finds the same problem the tools found, the provenance record agrees, and the source cannot be confirmed by any trusted outlet. Distrust a result when it stands alone: one tool flags a heavily compressed image, no other tool agrees, and your own inspection finds nothing wrong — that is more likely a false positive than a discovery. Distrust it also when a tool promises certainty: "100% AI-generated" or "definitely real" are claims no honest detector makes, because detection is probabilistic by nature. A detector can give you good reason to doubt an image, but it can never prove an image is real.</p>
+
+      <h2>The Bottom Line</h2>
+
+      <p>Free AI image detection tools are genuinely useful, and they are better used together than alone. Start with the source check and a reverse image search, because they are free, fast, and often decisive. Run an AI classifier and a forensic check that look at different signals, and compare their results. Inspect the image yourself, using the manual checks in our <a href="how-to-spot-ai-generated-images.html">guide to spotting AI-generated images</a>. And be honest about what the evidence shows: detectors return probabilities, not verdicts, and no tool — free or paid — is 100% reliable. The habit that keeps working is the same one journalists use: check the source, check the file, check it with more than one tool, look at it yourself, and do not share what you cannot verify.</p>
+
+      <hr>
+
+      <p><a href="https://mirzacreative.github.io/traceface/">← Back to Traceface</a> · Try the live detector at <a href="https://traceface.streamlit.app">traceface.streamlit.app</a> · Source code: <a href="https://github.com/mirzacreative/traceface">github.com/mirzacreative/traceface</a></p>
+
+      <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
+        This site is open source. <a href="https://github.com/mirzacreative/traceface/edit/main/ai-image-detection-tools-compared.html">Improve this page</a>.
+      </div>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>
